@@ -20,6 +20,15 @@ retornando as informações requisitadas em formato JSON e o código de status H
 
 ![image](https://user-images.githubusercontent.com/53957365/163680015-27afb77b-35d1-4528-816e-c68a317fa8d9.png)
 
+Temos um banco de dados chamado "database.db". Ele é criado e acessado utilizando o SQLAlchemy. Para iniciar o banco de dados, dentro da pasta **app** acesse o console Pythone digite os seguintes comandos:
+
+```
+cd app
+python3
+from app import db
+db.create_all()
+```
+
 ## Recursos da API
 
 1. **Efetuar pagamentos.**
@@ -185,4 +194,6 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   
   ![image](https://user-images.githubusercontent.com/53957365/163680662-1f8ab78e-94dd-4aa0-ab99-bd7679305510.png)
 
+## Funcionalidades extras
 
+A principal atividade neste projeto era construir uma API onde um cliente pudesse acessá-la e efetuar pagamentos. As demais funcionalidades adicionadas, como visualizar todos os pagamentos, criar um usuário novo, promover e deletar usuários, tudo isso são funções extras que não fazem parte da ideia do projeto em si mas foram exploradas para melhor entender o conceito de banco de dados relacionais e também das requisições à uma REST API.
