@@ -20,5 +20,12 @@ git clone https://github.com/leoandrade20/REST-API-Project.git
 ```
 
 Com isso, é necessário instalar as bibliotecas do Python para o projeto. Você pode escolher instalar tudo na sua máquina ou em uma máquina virtual
-do próprio Python (virtualenv). Deixarei abaixo ambos os métodos.
+do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
+
+- Instalando o *virtualenv* e ativando a máquina virtual.
+
+  ```
+  pip install virtualenv
+  virtualenv [nome da máquina virtual]
+  ```
 
