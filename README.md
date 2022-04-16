@@ -77,7 +77,7 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
 
 - **Logando na API.**
 
-  O usuário 'admin' já possui o cargo de admin por padrão. Mas primeiro vamos logar com o usuário edward para testar alguns recursos. Para logar digite:
+  O usuário 'admin' já possui o cargo de admin por padrão. Mas primeiro vamos logar com o usuário 'edward' para testar alguns recursos. Para logar digite:
 
   ```
   curl -i -X GET -H "Content-Type: application/json" --user edward:newgate http://localhost:5000/login  
@@ -86,11 +86,11 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   ![image](https://user-images.githubusercontent.com/53957365/163655885-d9941cb9-ebf9-4486-98a9-cd65c83d9ec3.png)
 
 
-  Na imagem acima podemos ver a resposta da API com o token de acesso para o usuário logado em questão, no caso, o edward. Este token de acesso é um
+  Na imagem acima podemos ver a resposta da API com o token de acesso para o usuário logado em questão, no caso, o 'edward'. Este token de acesso é um
   pré-requisito para acessar qualquer recurso da API. De agora em diante, para qualquer recurso que utilizarmos, vamos passar o token de acesso no 
   cabeçalho próprio que é o 'X-Access-Token'.
 
-  Antes de efetuar um pagamento, vamos consultar se já há algum pagamento feito pelo usuário edward. Para ilustrar como os dados devem ser passados, já 
+  Antes de efetuar um pagamento, vamos consultar se já há algum pagamento feito pelo usuário 'edward'. Para ilustrar como os dados devem ser passados, já 
   deixei alguns dados prontos no banco de dados. Para consultar, basta digitar:
 
 - **Visualizando os pagamentos do usuário logado.**
@@ -99,7 +99,7 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuario edward aqui]" http://localhost:5000/payment
   ```
 
-  Você irá visualizar a seguinte resposta da API (tela do lado esquerdo) com as informações dos pagamentos já feitos pelo usuário edward. 
+  Você irá visualizar a seguinte resposta da API (tela do lado esquerdo) com as informações dos pagamentos já feitos pelo usuário 'edward'. 
   O token de  acesso é mudado a cada sessão de login e também possui um tempo de expiração de 15 minutos.
 
   ![image](https://user-images.githubusercontent.com/53957365/163656529-47370283-00e0-46eb-94be-5a559781610d.png)
@@ -127,5 +127,14 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   ```
   curl -i -X POST -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário edward aqui]" -d '{"name": "Edward Newgate", "email": "shirohige@gmail.com", "cpf": "01203412755", "amount": 12400000, "payment_method": 1, "name_card": "EDWARD NEWGATE", "num_card": "1112333544467778", "expiration": "04/25", "cvv": 700}' http://localhost:5000/payment
   ```
-
-
+  
+- **Verificando se os pagamentos foram armazenados no banco de dados.**
+  
+  Para verificar se os pagamentos no nome do usuario 'edward' foram armazenados na base de dados e assinalados com o respectivo 'user_id', vamos 
+  consultar o banco de dados ainda logados com a conta do 'edward' (usando o token deste usuário). Digitamos novamente o comando:
+  
+  ```
+  curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuario edward aqui]" http://localhost:5000/payment
+  ```
+  
+  Note que o 'user_id' de todos os pagamentos é o mesmo, que se refere ao usuário 'edward'.
