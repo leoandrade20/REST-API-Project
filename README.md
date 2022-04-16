@@ -43,4 +43,11 @@ do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
   ```
   deactivate
   ```
-
+  
+ - Rodando a API
+ 
+   Para rodar a API em si, basta digitar o seguinte comando (caso esteja utilizando uma versão do Python 3.X.X)
+   
+   ```
+   python3 app.py
+   ```
