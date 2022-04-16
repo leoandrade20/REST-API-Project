@@ -64,7 +64,7 @@ do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
    python3 app.py
    ```
    
-   Então, a API já está funcionando!
+   Se você executou o código, a API já está rodando na sua máquina na porta 5000, ou seja, endereço **http://localhost:5000** ! 
    
    ![image](https://user-images.githubusercontent.com/53957365/163655328-b0c013a1-157b-4a3f-8048-c05e36bdd781.png)
    
@@ -150,4 +150,16 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuario edward aqui]" http://localhost:5000/payment
   ```
   
+  ![image](https://user-images.githubusercontent.com/53957365/163658995-23fec003-13e0-4cc9-a337-0fbbd966bd02.png)
+  
+  Observe que os dois pagamentos, um em boleto e o outro em cartão que passamos para API, foram armazenados.
   Note que o 'user_id' de todos os pagamentos é o mesmo, que se refere ao usuário 'edward'.
+  
+  Apenas para verificarmos que os dados estão persistindo de verdade, podemos consultar o banco de dados diretamente utilizando a ferramenta
+  *sqlite3*.
+  
+  ![image](https://user-images.githubusercontent.com/53957365/163659206-11709778-111c-4829-ac3e-df69c19d9556.png)
+  
+  Apesar de não ser a melhor das formas de visualizar essa tabela no banco de dados, podemos observar em nome de quem os pagamentos foram feitos,
+  o 'user_id' do cliente, o método de pagamento (0 ou 1), o email, cpf.
+
