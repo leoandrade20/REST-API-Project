@@ -215,3 +215,21 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
 ## Funcionalidades extras
 
 A principal atividade neste projeto era construir uma API onde um cliente pudesse acessá-la e efetuar pagamentos. As demais funcionalidades adicionadas, como visualizar todos os pagamentos, criar um usuário novo, promover e deletar usuários, tudo isso são funções extras que não fazem parte da ideia do projeto em si mas foram exploradas para melhor entender o conceito de banco de dados relacionais e também das requisições à uma REST API.
+
+- **Criar um novo usuário (somente admins)**
+
+  ```
+  curl -i -X POST -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário admin aqui]" -d '{"username": "eren", "password": "yeager"}' http://localhost:5000/user
+  ```
+  
+- **Promover um usuário a admin (somente admins)**
+
+  ```
+  curl -i -X PUT -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário admin aqui]" http://localhost:5000/user/[insira o public_id do usuário a ser promovido aqui]
+  ```
+  
+- **Deletar um usuário (somente admins)**
+  
+  ```
+  curl -i -X DELETE -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário admin aqui]" http://localhost:5000/user/[insira o public_id do usuário a ser promovido aqui]
+  ```
