@@ -115,7 +115,11 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   curl -i -X POST -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuario edward aqui]" -d '{"name": "Edward Newgate", "email": "shirohige@gmail", "cpf": "01203412755", "amount": 50550, "payment_method": 0}' http://localhost:5000
   ```
   
+  ![image](https://user-images.githubusercontent.com/53957365/163658713-d4f9ae86-9c81-4286-b98d-541d71a54ca4.png)
+  
   O 'payment_method = 0' indica que o método de pagamento é em boleto.
+  
+  E, como esperado, retornou o código numérico do boleto a ser pago.
   
 - **Efetuando um pagamento com cartão de crédito.**
   
@@ -127,6 +131,15 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   ```
   curl -i -X POST -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário edward aqui]" -d '{"name": "Edward Newgate", "email": "shirohige@gmail.com", "cpf": "01203412755", "amount": 12400000, "payment_method": 1, "name_card": "EDWARD NEWGATE", "num_card": "1112333544467778", "expiration": "04/25", "cvv": 700}' http://localhost:5000/payment
   ```
+  
+  ![image](https://user-images.githubusercontent.com/53957365/163658780-e4a9ac62-1928-48da-91a1-706daeeb7521.png)
+  
+  O 'payment_method = 1' indica que o método de pagamento é com cartão de crédito.
+  
+  Note que fiz duas requisições e que uma retornou a mensagem com "Pagamento bem-sucedido!" e a outra com "Cartão de crédito inválido". A única coisa
+  que mudou nas requisições foi a quantia a ser paga, mas isso não tem nada a ver com o processamento do cartão. Na verdade, como foi dito no início,
+  o cartão não é processado, a resposta se o pagamento foi bem-sucedido ou não é aleatório. 
+  Com isso, esperamos que apenas que a primeira requisição bem-sucedida tenha tido os dados do pagamento e do cartão armazenados no banco de dados.
   
 - **Verificando se os pagamentos foram armazenados no banco de dados.**
   
