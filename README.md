@@ -49,6 +49,7 @@ do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
   Na pasta principal do projeto (REST-API-Project), digite os seguintes comandos.
 
   ```
+  cd REST-API-Project
   pip install virtualenv
   virtualenv [nome da máquina virtual]
   source [nome da máquina virtual]/bin/activate
@@ -85,7 +86,7 @@ do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
   
 - **Rodando a API**
  
-   Para rodar a API em si, basta digitar o seguinte comando (caso esteja utilizando uma versão do Python 3.X.X)
+   Para rodar a API em si, ainda na pasta **app**, basta digitar o seguinte comando (caso esteja utilizando uma versão do Python 3.X.X)
    
    ```
    python3 app.py
@@ -104,7 +105,7 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
 
 - **Logando na API.**
 
-  O usuário 'admin' já possui o cargo de admin por padrão. Mas primeiro vamos logar com o usuário 'edward' para testar alguns recursos. Para logar digite:
+  Abra uma nova aba no seu terminal de comandos. O usuário 'admin' já possui o cargo de admin por padrão. Mas primeiro vamos logar com o usuário 'edward' para testar alguns recursos. Para logar digite:
 
   ```
   curl -i -X GET -H "Content-Type: application/json" --user edward:newgate http://localhost:5000/login  
