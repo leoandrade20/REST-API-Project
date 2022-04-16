@@ -17,7 +17,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret' # used to encode the user's token
 
 # The database is stored in the same folder as the 'app.py' file...
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///payments.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
 db = SQLAlchemy(app)
 
@@ -112,14 +112,7 @@ def token_required(f):
 @app.route('/home')
 def index():
     
-    text = "Bem vindo! Este eh um projeto de uma REST API simples para efetuar pagamentos.
-            Ha dois usuarios iniciais: 'admin:1234' e 'edward:newgate'.
-            O usuario 'admin' possui admin=True e portanto pode efetuar todas as acoes de um adm.
-            O usuario 'edward' eh um usuario comum.
-
-            Eh possivel fazer pagamentos com boletos e cartao de credito. 
-            Nao foi levado em conta o processamento dos dados pessoais do cliente, apenas do cartao de credito,
-            e as respostas em relacao a este sao 'fakes' geradas aleatoriamente."
+    text = "Bem vindo! Este eh um projeto de uma REST API simples para efetuar pagamentos."
 
     return text
 
