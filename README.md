@@ -11,6 +11,15 @@ usuário comum.
 Além de realizar pagamentos, os usuários podem realizar outras ações específicas como visualizar os pagamentos feitos, visualizar apenas um pagamento 
 específico, visualizar os usuários da base de dados, promover ou deletar usuários, mas tudo dependendo de seu cargo como usuário (admin ou não).
 
+## Design da REST API
+
+O projeto em si é simples. As ações principais são: conseguir logar na API e realizar pagamentos (seja em boleto ou cartão de crédito). A arquitetura e
+o funcionamento da REST API em si está ilustrada na imagem abaixo. O cliente se comunica com a API enviando requisições HTTP (GET, POST, DELETE, PUT) com
+os dados em formato JSON com as informações que deseja obter do banco de dados. A API atua como este intermediário entre o cliente e o banco de dados,
+retornando as informações e o código de status HTTP (200, 404) na resposta para o cliente.
+
+![image](https://user-images.githubusercontent.com/53957365/163680015-27afb77b-35d1-4528-816e-c68a317fa8d9.png)
+
 ## Recursos da API
 
 1. **Efetuar pagamentos.**
