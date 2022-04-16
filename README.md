@@ -54,12 +54,15 @@ do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
 
 - **Instalando o *virtualenv*, ativando a máquina virtual e instalando os pacotes requeridos.**
 
+  Na pasta principal do projeto (REST-API-Project), digite os seguintes comandos.
+
   ```
   pip install virtualenv
   virtualenv [nome da máquina virtual]
   source [nome da máquina virtual]/bin/activate
   ```
   
+  Os comandos acima irão instalar o virtualenv, criar uma máquina virtual com ele e ativá-la. Nomeie a máquina virtual como quiser. 
   Agora, você pode digitar o seguinte comando e instalará os pacotes necessários na máquina virtual criada. 
   
   ```
@@ -74,7 +77,21 @@ do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
   deactivate
   ```
   
- - **Rodando a API**
+- **Inicializando o banco de dados**
+
+  Temos um banco de dados chamado "database.db". Ele é criado e acessado utilizando o SQLAlchemy. Para iniciar o banco de dados, dentro da pasta **app**   acesse o console Pythone digite os seguintes comandos:
+
+  ```
+  cd app
+  python3
+  from app import db
+  db.create_all()
+  exit()
+  ```
+  
+  Dessa forma a base de dados foi inicializada!
+  
+- **Rodando a API**
  
    Para rodar a API em si, basta digitar o seguinte comando (caso esteja utilizando uma versão do Python 3.X.X)
    
