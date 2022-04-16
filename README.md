@@ -163,3 +163,7 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   Apesar de não ser a melhor das formas de visualizar essa tabela no banco de dados, podemos observar em nome de quem os pagamentos foram feitos,
   o 'user_id' do cliente, o método de pagamento (0 ou 1), o email, cpf.
 
+- **Logando como admin e visualizando os usuários no banco de dados.**
+  
+  Vamos brevemente logar como admin apenas para consultar as informações sobre os usuários no banco de dados (caso você tente fazer essa consulta
+  logado com o usuário 'edward', não conseguirá porque ele não tem permissão para isso).
