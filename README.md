@@ -176,3 +176,11 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   
   Vamos brevemente logar como admin apenas para consultar as informações sobre os usuários no banco de dados (caso você tente fazer essa consulta
   logado com o usuário 'edward', não conseguirá porque ele não tem permissão para isso).
+  
+  ![image](https://user-images.githubusercontent.com/53957365/163680607-fbc91983-3887-48f9-9115-1da96d4ea234.png)
+  
+  Como 'admin', podemos visualizar também as informações de um usuário específico passando o 'public_id'.
+  
+  ![image](https://user-images.githubusercontent.com/53957365/163680662-1f8ab78e-94dd-4aa0-ab99-bd7679305510.png)
+
+
