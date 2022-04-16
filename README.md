@@ -16,7 +16,8 @@ específico, visualizar os usuários da base de dados, promover ou deletar usuá
 Para rodar a API, primeiro é necessário clonar todo o repositório para a sua máquina. Assumindo que você esteja usando uma máquina Linux, digite o comando:
 
 ```
-git clone 
+git clone https://github.com/leoandrade20/REST-API-Project.git
 ```
 
+Com isso,
 
