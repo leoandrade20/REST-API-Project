@@ -20,14 +20,6 @@ retornando as informações requisitadas em formato JSON e o código de status H
 
 ![image](https://user-images.githubusercontent.com/53957365/163680015-27afb77b-35d1-4528-816e-c68a317fa8d9.png)
 
-Temos um banco de dados chamado "database.db". Ele é criado e acessado utilizando o SQLAlchemy. Para iniciar o banco de dados, dentro da pasta **app** acesse o console Pythone digite os seguintes comandos:
-
-```
-cd app
-python3
-from app import db
-db.create_all()
-```
 
 ## Recursos da API
 
@@ -201,13 +193,21 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
 - **Logando como admin e visualizando os usuários no banco de dados.**
   
   Vamos brevemente logar como admin apenas para consultar as informações sobre os usuários no banco de dados (caso você tente fazer essa consulta
-  logado com o usuário 'edward', não conseguirá porque ele não tem permissão para isso).
+  logado com o usuário 'edward', não conseguirá porque ele não tem permissão para isso). Digite o comando:
+  
+  ```
+  curl -i -X GET -H "Content-Type: application/json" --user admin:1234 http://localhost:5000/login
+  ```
   
   ![image](https://user-images.githubusercontent.com/53957365/163680607-fbc91983-3887-48f9-9115-1da96d4ea234.png)
   
   Observe que cada usuário tem seu próprio 'public_id'. Note também que estamos guardando as hashs das senhas no banco de dados.
   
   Como 'admin', podemos visualizar também as informações de um usuário específico passando o seu 'public_id'.
+  
+  ```
+  curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuario admin aqui]" http://localhost:5000/user/[insira o  public_id do usuário desejado aqui]
+  ```
   
   ![image](https://user-images.githubusercontent.com/53957365/163680662-1f8ab78e-94dd-4aa0-ab99-bd7679305510.png)
 
