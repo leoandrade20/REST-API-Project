@@ -93,13 +93,39 @@ Na base de dados "database.db" já estão incluídos dois usuários: {"username"
   Antes de efetuar um pagamento, vamos consultar se já há algum pagamento feito pelo usuário edward. Para ilustrar como os dados devem ser passados, já 
   deixei alguns dados prontos no banco de dados. Para consultar, basta digitar:
 
+- **Visualizando os pagamentos do usuário logado.**
+
   ```
-  curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token aqui]" http://localhost:5000/payment
+  curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuario edward aqui]" http://localhost:5000/payment
   ```
 
   Você irá visualizar a seguinte resposta da API (tela do lado esquerdo) com as informações dos pagamentos já feitos pelo usuário edward. 
   O token de  acesso é mudado a cada sessão de login e também possui um tempo de expiração de 15 minutos.
 
   ![image](https://user-images.githubusercontent.com/53957365/163656529-47370283-00e0-46eb-94be-5a559781610d.png)
+  
+  Podemos ver que há dois pagamentos cadastrados no nome de Edward Newgate, um em boleto e o outro em cartão de crédito (com informações sobre este).
+  
+- **Efetuando um pagamento em boleto.**  
+  
+  Vamos efetuar um novo pagamento em boleto. Devemos passar para API neste caso o nome, email, CPF e quantia a pagar. 
+  Um exemplo de código para passar essas informações:
+  
+  ```
+  curl -i -X POST -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuario edward aqui]" -d '{"name": "Edward Newgate", "email": "shirohige@gmail", "cpf": "01203412755", "amount": 50550, "payment_method": 0}' http://localhost:5000
+  ```
+  
+  O 'payment_method = 0' indica que o método de pagamento é em boleto.
+  
+- **Efetuando um pagamento com cartão de crédito.**
+  
+  Para efetuar um pagamento usando o cartão de crédito, além de passar as informações sobre o cliente (nome, email, cpf), a quantia e o método 
+  de pagamento, precisamos também passar os dados do cartão, ou seja, o nome no cartão, o número do cartão, a validade e código de segurança (CVV).
+  
+  Para efetuar um pagamento desse tipo, digite o seguinte comando abaixo:
+  
+  ```
+  curl -i -X POST -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário edward aqui]" -d '{"name": "Edward Newgate", "email": "shirohige@gmail.com", "cpf": "01203412755", "amount": 12400000, "payment_method": 1, "name_card": "EDWARD NEWGATE", "num_card": "1112333544467778", "expiration": "04/25", "cvv": 700}' http://localhost:5000/payment
+  ```
 
 
