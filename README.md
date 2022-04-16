@@ -51,3 +51,23 @@ do próprio Python (*virtualenv*). Deixarei abaixo ambos os métodos.
    ```
    python3 app.py
    ```
+   
+   Então, a API já está funcionando!
+   
+   ![image](https://user-images.githubusercontent.com/53957365/163655328-b0c013a1-157b-4a3f-8048-c05e36bdd781.png)
+   
+   ![image](https://user-images.githubusercontent.com/53957365/163655512-fe879d27-e892-4145-8355-bd7eaab49a11.png)
+
+## Testando a API
+
+Agora, vamos testar os recursos da API. O cURL será a ferramenta majoritariamente utilizada para consumir a API acessando os endpoints.
+Na base de dados "database.db" já estão incluídos dois usuários: {"username": "admin", "password": "1234"} e  {"username": "edward", "password": "newgate"}.
+
+O usuário 'admin' já possui o cargo de admin por padrão. Mas primeiro vamos logar com o usuário edward para testar alguns recursos. Para logar digite:
+
+```
+curl -i -X GET -H "Content-Type: application/json" --user edward:newgate http://localhost:5000/login
+```
+
+
+
