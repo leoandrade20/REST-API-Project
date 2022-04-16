@@ -233,3 +233,14 @@ A principal atividade neste projeto era construir uma API onde um cliente pudess
   ```
   curl -i -X DELETE -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário admin aqui]" http://localhost:5000/user/[insira o public_id do usuário a ser promovido aqui]
   ```
+- **Visualizar informações de um cliente específico. (somente admins)**
+
+  ```
+  curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário admin aqui]" http://localhost:5000/user/[insira o public_id do usuário aqui]
+  ```
+  
+- **Visualizar informações de um pagamento específico. (usuário comum visualiza apenas seus próprios pagamentos, admins visualizam qualquer um)**
+
+  ```
+  curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário admin aqui]" http://localhost:5000/payment/[insira o payment_id do pagamento aqui]
+  ```
