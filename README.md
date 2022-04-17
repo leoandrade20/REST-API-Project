@@ -27,6 +27,13 @@ A tabela 'user' guarda as informações do usuário (id, public_id, username, pa
 Quando um pagamento é feito, ele é assinado com o 'user_id' do usuário que o realizou, isto é, o 'user_id' é a chave primária (valor único para
 cada usuário) da tabela 'user' e na tabela 'payment' ela é usada como chave estrangeira. Abaixo há um Diagrama ER para melhor explicar o modelo.
 
+- **Token de acesso**
+
+  Uma parte importante do projeto são os *tokens* de acesso de usuário. Quando um login é feito, é gerado um *token* de acesso para o usuário logado.
+  Este *token* será utilizado pela API para reconhecer o usuário e também reconhecer as permissões dele para executar as tarefas. Para acessar qualquer
+  recurso da API, é necessário passar o **token** de acesso. Este tem uma validade de 15 minutos, após expirar é necessário logar novamente.
+  
+
 ![image](https://user-images.githubusercontent.com/53957365/163731772-a45cea74-10ca-448e-9d82-171634a064a1.png)
 
 ## Recursos da API
