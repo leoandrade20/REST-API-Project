@@ -1,5 +1,10 @@
 # Project: SIMPLE DESIGN OF A REST API FOR PAYMENTS
 # Author: Leonardo de Almeida Silva Andrade
+
+# DESCRIPTION: 
+# This is a project of a simple REST API for payments. The aim was to study the functioning of an API and how to integrate it with a relational database. 
+# Despite generating different tokens at each login and storing a hash of passwords, security itself was not the focus of this project.
+
 # Reference: https://www.youtube.com/watch?v=WxGBoY5iNXY
 
 from flask import Flask, request, jsonify, make_response
@@ -14,7 +19,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
 # Used to encode the current user's token...
-app.config['SECRET_KEY'] = 'secret' # used to encode the user's token
+app.config['SECRET_KEY'] = 'secret'
 
 # The database is stored in the same folder as the 'app.py' file...
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
