@@ -20,6 +20,14 @@ retornando as informações requisitadas em formato JSON e o código de status H
 
 ![image](https://user-images.githubusercontent.com/53957365/163680015-27afb77b-35d1-4528-816e-c68a317fa8d9.png)
 
+O projeto do banco de dados utilizado foi do tipo relacional. O banco de dados é o 'database.db', dentro dele há duas tabelas: 'user' e 'payment'.
+A tabela 'user' guarda as informações do usuário (id, public_id, username, password, admin). Já a tabela 'payment' guarda as informações dos pagamentos
+(id, user_id, name, cpf, email, payment_method,...). Essas duas tabelas se relacionam entre si através do 'id' do usuário.
+
+Quando um pagamento é feito, ele é assinado com o 'user_id' do usuário que o realizou, isto é, o 'user_id' é a chave primária (valor único para
+cada usuário) da tabela 'user' e na tabela 'payment' ela é usada como chave estrangeira. Abaixo há um Diagrama ER para melhor explicar o modelo.
+
+![image](https://user-images.githubusercontent.com/53957365/163731772-a45cea74-10ca-448e-9d82-171634a064a1.png)
 
 ## Recursos da API
 
@@ -244,3 +252,7 @@ A principal atividade neste projeto era construir uma API onde um cliente pudess
   ```
   curl -i -X GET -H "Content-Type: application/json" -H "X-Access-Token: [insira o token do usuário admin aqui]" http://localhost:5000/payment/[insira o payment_id do pagamento aqui]
   ```
+
+## **Referências**
+
+- Canal "Pretty Printed": https://www.youtube.com/watch?v=WxGBoY5iNXY
