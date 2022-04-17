@@ -256,3 +256,6 @@ A principal atividade neste projeto era construir uma API onde um cliente pudess
 ## **Referências**
 
 - Canal "Pretty Printed": https://www.youtube.com/watch?v=WxGBoY5iNXY
+
+A base do projeto foi este tutorial, pude reaproveitar o código, adaptar e adicionar mais funcionalidades para este projeto. 
+Também não utilizei o Postman para fazer as requisições, e sim o cURL.
