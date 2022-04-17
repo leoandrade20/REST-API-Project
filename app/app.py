@@ -90,7 +90,7 @@ def token_required(f):
         if not token:
             # If the X-Access-Token header field is null...
 
-            return jsonify({'message': 'Token is missing!'}), 401
+            return jsonify({'message': 'Token is missing!'}), 401 # 401 = Unauthorized
 
         try:
             # The access token has the public_id, so we need to decode it to have it...
@@ -236,7 +236,7 @@ def create_user(current_user):
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({'message': 'New user created!'}), 200
+    return jsonify({'message': 'New user created!'}), 200 # 200 = OK
 
 # -------------------------------------- #
 # PROMOTE AN USER TO ADMIN (ONLY ADMINS) #
@@ -265,7 +265,7 @@ def promote_user(current_user, public_id):
     if not user:
         # If the user isn't in the database...
 
-        return jsonify({'message': 'No user found!'}), 404
+        return jsonify({'message': 'No user found!'}), 404 # 404 = Not Found
     
     user.admin = True
     db.session.commit()
@@ -578,7 +578,7 @@ def make_a_payment(current_user):
         else:
             # Invalid credit card, returns a bad request...
             
-            return jsonify({'message': "Unsuccessful payment... Please, enter a valid card!"}), 400
+            return jsonify({'message': "Unsuccessful payment... Please, enter a valid card!"}), 400 # Bad Request
 
     else:
         return jsonify({'message': "Invalid payment method!"}), 400
