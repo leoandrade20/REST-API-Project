@@ -358,7 +358,8 @@ def login():
 def get_all_payments(current_user):
 
     """
-    Returns all payments made.
+    Returns all payments made. If you are a regular user, you will only be able to see your own payments. 
+    If you are an admin user, you will be able to see all payments in the database.
     
     :param current_user: Current user obtained by the decoded token.
     :return: List of all payments made (JSON format).
@@ -610,7 +611,8 @@ def make_a_payment(current_user):
 def delete_payment(current_user, payment_id):
 
     """
-    Deletes a payment from database.
+    Deletes a payment from database. If you are a regular user, you will only be able to delete your own payments. 
+    If you are an admin user, you will be able to delete any payments in the database.
 
     :param current_user: Current user obtained by the decoded token.
     :param payment_id: ID of the payment to be deleted.
