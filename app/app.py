@@ -117,6 +117,12 @@ def token_required(f):
 @app.route('/home')
 def index():
     
+    """
+    Just a symbolic home page.
+    
+    :return: A welcome message.
+    """
+    
     text = "Bem vindo! Este eh um projeto de uma REST API simples para efetuar pagamentos."
 
     return text
@@ -439,6 +445,17 @@ def get_all_payments(current_user):
 @app.route('/payment/<payment_id>', methods=['GET'])
 @token_required
 def get_one_payment(current_user, payment_id):
+    
+    """
+    Returns the payment who has the payment_id passed in. Only users with 'admin=True' are allowed to
+    performed this function. If the logged in user is not an admin, he will only be able to access a payment made by himself. 
+    If you are an admin, you can access any payment.
+    It takes the token from the current user to verify the permission.
+
+    :param current_user: Current user obtained by the decoded token.
+    :param payment_id: 'payment_id' of the payment to be consulted.
+    :return: Informations (JSON format) of the payment with the 'payment_id'passed.
+    """
 
     if not current_user.admin:
         # Current user isn't an admin, so it's only possible to consult a payment made by the current user of the token.
